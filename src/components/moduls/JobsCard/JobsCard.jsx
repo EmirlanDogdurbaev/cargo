@@ -1,24 +1,34 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import cl from "./JobCard.module.scss"
+import cl from "./JobCard.module.scss";
 
 const JobCard = () => {
-  const id = 1;
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
+        setJobs(response.data);
+      })
+      .catch((error) => {
+        console.error("Ошибка при получении данных :", error);
+      });
+  }, []);
+  const displayedJobs = jobs.slice(0, 3); 
   return (
     <>
-      <article  className={cl.JobCard}>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMspfbg9IsWZstWs5iZl85NC3EjKw1pgh7kQ&usqp=CAU"
-          alt="article card"
-        />
-        <div>
-          <h4>Lorem, ipsum.</h4>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur,
-            illum.
-          </p>
-          <Link to={`${id}`}>see more</Link>
-        </div>
-      </article>
+      {displayedJobs.map((job) => (
+        <article className={cl.JobCard } key={job.id}>
+          <img src={job.img} alt={job.title} />
+          <div>
+            <h4>{job.title}</h4>
+            <p>{job.description}</p>
+            <Link to={`${job.id}`}>see more</Link>
+          </div>
+        </article>
+      ))}
     </>
   );
 };

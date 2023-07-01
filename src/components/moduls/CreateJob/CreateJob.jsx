@@ -46,7 +46,6 @@ const CreateJob = () => {
       weight,
       choose,
     };
-
     axios
       .post("http://localhost:8081/?", formData)
       .then((response) => {

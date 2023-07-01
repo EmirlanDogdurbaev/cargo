@@ -5,9 +5,7 @@ import cl from "./Jobs.module.scss"
 const Jobs = () => {
   return (
     <div className={cl.Jobs}>
-      {/* <JobCard/>
       <JobCard/>
-      <JobCard/> */}
       <CreateJob/>
     </div>
   );
