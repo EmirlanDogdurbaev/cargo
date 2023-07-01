@@ -37,7 +37,7 @@ const NavLinks = ({ pages, drawer = false, open, close, openModal }) => {
               drawer ? classes.drawerLink : null
             }`}
           >
-            <NavLink onClick={close} to="/institution">
+            <NavLink onClick={close} to="/jobs">
               Jobs
             </NavLink>
           </li>
