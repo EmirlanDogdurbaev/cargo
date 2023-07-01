@@ -5,7 +5,6 @@ import cl from "./JobCard.module.scss";
 
 const JobCard = () => {
   const [jobs, setJobs] = useState([]);
-
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
