@@ -1,0 +1,21 @@
+// @import '../../../../style/variables/colors';
+
+.Drawer{
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 6;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  ul{
+    flex-direction: column;
+    align-items: flex-start;
+    li{
+      margin: 20px;
+    }
+  }
+}

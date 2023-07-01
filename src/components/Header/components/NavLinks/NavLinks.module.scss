@@ -1,0 +1,49 @@
+.NavLinks{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  li{
+    cursor: pointer;
+    margin: 0 20px;
+    a{
+      color: #023D84;
+      text-decoration: none;
+      font-size: 20px;
+    }
+  }
+  .login, .logout{
+    background-color: #023D84;
+    span{
+      color: #fff;
+    }
+  }
+  .register{
+    border: 2px solid #023D84;
+  }
+  .login, .register, .logout{
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  .burger{
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .NavLinks{
+    li{
+      margin: 10px;
+    }
+    .burger{
+      display: block!important;
+    }
+    .pagesLink{
+      display: none;
+    }
+    .drawerLink{
+      display: block;
+    }
+  }
+
+}

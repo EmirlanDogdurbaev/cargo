@@ -1,0 +1,21 @@
+.FormInput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0px;
+    .label{
+        color: #4b4b4b;
+        position: relative;
+        top: -20px;
+    }
+    .input{
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #000;
+        position: relative;
+    }
+    .input:focus~ .label{
+        top: 20px;
+        opacity: 0;
+    }
+}
