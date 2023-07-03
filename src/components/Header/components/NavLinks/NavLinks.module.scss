@@ -8,19 +8,19 @@
     cursor: pointer;
     margin: 0 20px;
     a{
-      color: #023D84;
+      color: #02842b;
       text-decoration: none;
       font-size: 20px;
     }
   }
   .login, .logout{
-    background-color: #023D84;
-    span{
+    background-color: #238402;
+    a, span{
       color: #fff;
     }
   }
   .register{
-    border: 2px solid #023D84;
+    border: 2px solid #028438;
   }
   .login, .register, .logout{
     padding: 10px 20px;

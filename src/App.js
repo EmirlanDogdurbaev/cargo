@@ -6,6 +6,7 @@ import JobDetail from "./pages/JobDetail/JobDetail";
 import Jobs from "./pages/Jobs/Jobs";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile/Profile";
+import Auth from "./pages/Auth/Auth";
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="profile" element={<Profile />} />
           <Route path="jobs" element={<Jobs />} />
+          <Route path="login" element={<Auth type={'login'} />} />
+          <Route path="register/:user" element={<Auth type={'register'} />} />
           <Route path="jobs/:id" element={<JobDetail />} />
         </Routes>
       </Layout>

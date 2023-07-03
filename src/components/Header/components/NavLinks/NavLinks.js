@@ -3,13 +3,19 @@ import burger from "../../../../assets/icons/burger.svg";
 import classes from "./NavLinks.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../../store/AuthSlice";
+import { useEffect, useState } from "react";
+
 
 const NavLinks = ({ pages, drawer = false, open, close, openModal }) => {
-  const token = useSelector((state) => state.auth.token);
-  const dispatch = useDispatch();
+  const token = localStorage.getItem("token")
+
   function logoutHandler() {
-    dispatch(logout());
+    localStorage.removeItem("token")
+    localStorage.removeItem("username")
+    window.location.reload();
+    
   }
+
   return (
     <ul className={classes.NavLinks}>
       {pages ? (
@@ -41,28 +47,34 @@ const NavLinks = ({ pages, drawer = false, open, close, openModal }) => {
               Jobs
             </NavLink>
           </li>
-          <li onClick={() => openModal("login")} className={classes.login}>
-            <span>Войти</span>
-          </li>
-          <li
-            onClick={() => openModal("register")}
-            className={classes.register}
-          >
-            <span>Регистрация</span>
-          </li>
+          {!token ? (
+            <>
+              <li className={classes.login}>
+                <NavLink to={'login'}>Войти</NavLink>
+              </li>
+              <li
+                className={classes.register}
+              >
+                <NavLink to={'register/shipper'}>Регистрация</NavLink>
+              </li>
+            </>
+          ) : (
+            <li onClick={logoutHandler} className={classes.logout}>
+              <span>Выйти</span>
+            </li>
+          )}
         </>
       ) : (
         <>
           {!token ? (
             <>
-              <li onClick={() => openModal("login")} className={classes.login}>
-                <span>Войти</span>
+              <li className={classes.login}>
+                <NavLink to={'login'}>Войти</NavLink>
               </li>
               <li
-                onClick={() => openModal("register")}
                 className={classes.register}
               >
-                <span>Регистрация</span>
+                <NavLink to={'register/shipper'}>Регистрация</NavLink>
               </li>
             </>
           ) : (
