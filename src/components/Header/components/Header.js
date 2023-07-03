@@ -10,7 +10,7 @@ import Backdrop from '../../../components/UI/Backdrop/Backdrop';
   const [open, setOpen] = useState(false);
 
   return (
-    <header style={location.pathname === '/' ? { height: '110vh' } : { height: '15vh' }}>
+    <header >
       <Nav open={() => setOpen(true)} openModal={openModal} />
     
       <Drawer isOpen={open} close={() => setOpen(false)} />
@@ -20,3 +20,4 @@ import Backdrop from '../../../components/UI/Backdrop/Backdrop';
 };
 
 export default Header;
+
